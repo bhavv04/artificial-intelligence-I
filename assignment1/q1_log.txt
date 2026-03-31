@@ -1,0 +1,146 @@
+% Enter the names of ID of your group members below.
+% For STUDENT ID, use your 9-digit ONECARD number.
+% If you have 2 group members, leave the last entry blank.
+%
+%%%%%
+%%%%% NAME: Parsa Kermani Pour
+%%%%% STUDENT ID: 501183294
+%%%%%
+%%%%% NAME: Bhavdeep Arora
+%%%%% STUDENT ID: 501152698
+%%%%%
+%%%%% NAME: Arshia Sharifi
+%%%%% STUDENT ID: 501158323
+
+
+%%%%% SECTION: q1_log
+% Put a log of your interaction of your testing with the queries here
+
+
+%%%%% Query 1:
+% query1.
+%
+% Yes (0.00s cpu)
+
+
+%%%%% Query 2:
+% query2(Character).
+%
+% Character = andi_brand
+% Yes (0.00s cpu)
+
+
+%%%%% Query 3:
+% query3(Actor).
+%
+% Actor = cillian_murphy
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+%
+% No (0.00s cpu)
+
+
+%%%%% Query 4:
+% query4(Actor).
+%
+% Actor = marlon_brando
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+%
+% Actor = james_caan
+% Yes (0.00s cpu, solution 2)
+
+
+%%%%% Query 5:
+% query5(Director).
+%
+% Director = steven_spielberg
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+%
+% Director = steven_spielberg
+% Yes (0.00s cpu, solution 2, maybe more) ? ;
+%
+% No (0.00s cpu)
+
+
+%%%%% Query 6:
+% query6(Actor).
+%
+% Actor = charles_parnell
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+%
+% Actor = charles_parnell
+% Yes (0.00s cpu, solution 2, maybe more) ? ;
+%
+% No (0.00s cpu)
+
+
+%%%%% Query 7:
+% query7(Actor).
+%
+% Actor = leonardo_dicaprio
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+%
+% Actor = leonardo_dicaprio
+% Yes (0.00s cpu, solution 2, maybe more) ? ;
+%
+% No (0.00s cpu)
+
+
+%%%%% Query 8:
+% query8(Year).
+%
+% Year = 2010
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+%
+% Year = 2012
+% Yes (0.00s cpu, solution 2, maybe more) ? ;
+%
+% Year = 2013
+% Yes (0.00s cpu, solution 3, maybe more) ? ;
+%
+% Year = 2014
+% Yes (0.00s cpu, solution 4, maybe more) ? ;
+%
+% Year = 2015
+% Yes (0.00s cpu, solution 5, maybe more) ? ;
+%
+% Year = 2016
+% Yes (0.00s cpu, solution 6, maybe more) ? ;
+%
+% Year = 2017
+% Yes (0.00s cpu, solution 7, maybe more) ? ;
+%
+% Year = 2018
+% Yes (0.00s cpu, solution 8, maybe more) ? ;
+%
+% Year = 2019
+% Yes (0.00s cpu, solution 9, maybe more) ? ;
+%
+% No (0.00s cpu)
+
+
+%%%%% Query 9:
+% query9(Actor).
+%
+% Actor = martin_freeman
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+%
+% Actor = ian_mckellen
+% Yes (0.00s cpu, solution 2, maybe more) ? ;
+%
+% No (0.00s cpu)
+
+
+%%%%% Query 10:
+% query10(Movie).
+%
+% Movie = lawrence_of_arabia
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+%
+% No (0.00s cpu)
+
+
+%%%%% Query 11:
+% query11(Movie).
+%
+% Movie = the_lord_of_the_rings
+% Yes (0.00s cpu)

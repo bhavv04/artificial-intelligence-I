@@ -1,0 +1,127 @@
+% Enter the names of ID of your group members below.
+% For STUDENT ID, use your 9-digit ONECARD number.
+% If you have 2 group members, leave the last entry blank.
+%
+%%%%%
+%%%%% NAME: Parsa Kermani Pour
+%%%%% STUDENT ID: 501183294
+%%%%%
+%%%%% NAME: Bhavdeep Arora
+%%%%% STUDENT ID: 501152698
+%%%%%
+%%%%% NAME: Arshia Sharifi
+%%%%% STUDENT ID: 501158323
+
+
+% Add your queries below. Please use the following format
+% Your interaction should then be in the section q2_interaction_log
+% 
+% %%%%% QUERY 2
+% % EXPLANATION: Checks if there is a block on blockA
+% on(X, blockA).
+%
+% where 2 is the number of the query. The EXPLANATION line should contain your explanation 
+% in English of what the query tests. Omit the "%" on the line with the query
+% Don't forget to end queries with a period.
+
+
+
+
+
+%%%%% SECTION: q2_queries
+
+%%%%%% QUERY 1
+% EXPLANATION: Tests all taxable items and their after-tax costs
+costPerUnitAfterTax(Product, AfterTax), taxable(Product).
+
+%%%%%% QUERY 2
+% EXPLANATION: Tests all non-taxable items and their costs
+costPerUnitAfterTax(Product, Cost), not(taxable(Product)).
+
+%%%%%% QUERY 3
+% EXPLANATION: Tests complex sale calculation for multiple items on two-for-one sale
+costPerProductAfterTaxAndSale(Product, Total), twoForOneSale(Product), numPurchased(Product, Qty).
+
+%%%%%% QUERY 4
+% EXPLANATION: Tests all items with their individual costs and final calculated totals
+costPerProductAfterTaxAndSale(Product, Total), cost(Product, BaseCost), numPurchased(Product, Qty).
+
+%%%%%% QUERY 5
+% EXPLANATION: Tests the subtotal factorin in the sum of all individual item totals
+totalCost(Total).
+
+
+
+
+%%%%% SECTION: q2_interaction_log
+% Put a log of your interaction of your testing with the above queries here
+
+?- costPerUnitAfterTax(Product, AfterTax), taxable(Product).
+Product = marshmallow
+AfterTax = 3.3899999999999997
+Yes (0.00s cpu, solution 1, maybe more)
+Product = ice_cream
+AfterTax = 6.7687
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)
+
+?- costPerUnitAfterTax(Product, Cost), not taxable(Product).
+Product = milk
+Cost = 4.5
+Yes (0.00s cpu, solution 1, maybe more)
+Product = tomato
+Cost = 1.25
+Yes (0.00s cpu, solution 2, maybe more)
+Product = orange
+Cost = 0.75
+Yes (0.00s cpu, solution 3, maybe more)
+No (0.00s cpu)
+
+?- costPerProductAfterTaxAndSale(Product, Total), twoForOneSale(Product), numPurchased(Product, Qty).
+Product = marshmallow
+Total = 6.7799999999999994
+Qty = 3
+Yes (0.00s cpu, solution 1, maybe more)
+Product = tomato
+Total = 3.75
+Qty = 6
+Yes (0.00s cpu, solution 2, maybe more)
+Product = orange
+Total = 1.5
+Qty = 4
+Yes (0.00s cpu, solution 3, maybe more)
+No (0.00s cpu)
+
+?- costPerProductAfterTaxAndSale(Product, Total), cost(Product, BaseCost), numPurchased(Product, Qty).
+Product = marshmallow
+Total = 6.7799999999999994
+BaseCost = 3.0
+Qty = 3
+Yes (0.00s cpu, solution 1, maybe more)
+Product = ice_cream
+Total = 6.7687
+BaseCost = 5.99
+Qty = 1
+Yes (0.00s cpu, solution 2, maybe more)
+Product = milk
+Total = 9.0
+BaseCost = 4.5
+Qty = 2
+Yes (0.00s cpu, solution 3, maybe more)
+Product = tomato
+Total = 3.75
+BaseCost = 1.25
+Qty = 6
+Yes (0.00s cpu, solution 4, maybe more)
+Product = orange
+Total = 1.5
+BaseCost = 0.75
+Qty = 4
+Yes (0.00s cpu, solution 5, maybe more)
+No (0.00s cpu)
+
+?- totalCost(Total).
+Total = 27.7987
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+

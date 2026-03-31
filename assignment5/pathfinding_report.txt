@@ -1,0 +1,118 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Parsa Kermani Pour
+%%%%% NAME: Bhavdeep Arora
+%%%%% NAME: Arshia Sharifi
+%
+
+%%%%% SECTION: cpu_details
+%%%%% Describe the system you ran your tests on below.
+%%%%% It should include information about the processor (mainly speed), 
+%%%%% amount of RAM, and operator system you ran your tests on.
+
+Processor: AMD Ryzen 260
+RAM: 16GB
+Operating System: Windows 11
+ECLiPSe Version: 7.1
+
+
+%%%%% SECTION: summary
+%%%%% Summarize your results in 5-10 sentences. Describe which states you tested on, 
+%%%%% which ones ran in a reasonable amount of time (and how long they took), and 
+%%%%% how much speedup you saw when using declarative heuristics. Report any other 
+%%%%% interesting behaviour you saw.
+
+We tested our pathfinding planner on goals 11-15 from pathfindingInit1 and goal 21 from 
+pathfindingInit2. 
+
+Goals 11, 12, and 13 completed almost instantaneously (under 0.02 seconds) 
+in both regular and heuristic modes, as expected for simple pathfinding problems. 
+Goal 14 took approximately 4.44 seconds in regular mode and 0.47 seconds in heuristic mode, showing a speedup of 9.5x. 
+Goal 15 demonstrated the most significant improvement, taking 25.84 seconds in regular mode but only 1.91 seconds with heuristics enabled, representing a 13.5x speedup. 
+Goal 21 with five agents took 26.94 seconds in regular mode and 11.25 seconds in heuristic mode, achieving a 2.4x speedup. 
+
+Our declarative heuristics successfully prevented immediate move reversals and oscillations, which significantly reduced the search space. The heuristic preventing 3+ consecutive moves by the same agent helped balance agent movements and avoid dead-end search paths. Overall, the heuristics provided substantial performance improvements on medium to hard problems while maintaining solution optimality.
+
+
+%%%%% SECTION: log
+%%%%% Show the actual queries you ran below, along with the output
+%%%%% This should include runtime and the actual plan found
+
+%%% Testing with pathfindingInit1 %%%
+
+% Goal 11 - Regular Mode
+?- solve_problem(regular, 11, 5, Plan).
+Plan = [move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (0.00s cpu, solution 1, maybe more)
+Elapsed time (sec): 0.0
+
+% Goal 11 - Heuristic Mode
+?- solve_problem(heuristic, 11, 5, Plan).
+Plan = [move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (0.00s cpu, solution 1, maybe more)
+Elapsed time (sec): 0.0
+
+% Goal 12 - Regular Mode
+?- solve_problem(regular, 12, 10, Plan).
+Plan = [move(a2, 1, 2, 2, 2), move(a2, 0, 2, 1, 2), move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (0.00s cpu, solution 1, maybe more)
+Elapsed time (sec): 0.0
+
+% Goal 12 - Heuristic Mode
+?- solve_problem(heuristic, 12, 10, Plan).
+Plan = [move(a2, 1, 2, 2, 2), move(a2, 0, 2, 1, 2), move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (0.00s cpu, solution 1, maybe more)
+Elapsed time (sec): 0.0
+
+% Goal 13 - Regular Mode
+?- solve_problem(regular, 13, 10, Plan).
+Plan = [move(a3, 3, 1, 2, 1), move(a2, 1, 2, 2, 2), move(a2, 0, 2, 1, 2), move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (0.02s cpu, solution 1, maybe more)
+Elapsed time (sec): 0.015625
+
+% Goal 13 - Heuristic Mode
+?- solve_problem(heuristic, 13, 10, Plan).
+Plan = [move(a3, 3, 1, 2, 1), move(a2, 1, 2, 2, 2), move(a2, 0, 2, 1, 2), move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (0.02s cpu, solution 1, maybe more)
+Elapsed time (sec): 0.015625
+
+% Goal 14 - Regular Mode
+?- solve_problem(regular, 14, 10, Plan).
+Plan = [move(a1, 1, 2, 2, 2), move(a2, 2, 2, 3, 2), move(a1, 0, 2, 1, 2), move(a2, 1, 2, 2, 2), move(a1, 0, 1, 0, 2), move(a2, 0, 2, 1, 2), move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (4.44s cpu, solution 1, maybe more)
+Elapsed time (sec): 4.4375
+
+% Goal 14 - Heuristic Mode
+?- solve_problem(heuristic, 14, 10, Plan).
+Plan = [move(a1, 1, 2, 2, 2), move(a2, 2, 2, 3, 2), move(a1, 0, 2, 1, 2), move(a2, 1, 2, 2, 2), move(a1, 0, 1, 0, 2), move(a2, 0, 2, 1, 2), move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (0.47s cpu, solution 1, maybe more)
+Elapsed time (sec): 0.46875
+
+% Goal 15 - Regular Mode
+?- solve_problem(regular, 15, 15, Plan).
+Plan = [move(a1, 2, 2, 3, 2), move(a1, 1, 2, 2, 2), move(a2, 2, 2, 2, 1), move(a1, 0, 2, 1, 2), move(a2, 1, 2, 2, 2), move(a1, 0, 1, 0, 2), move(a2, 0, 2, 1, 2), move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (25.84s cpu, solution 1, maybe more)
+Elapsed time (sec): 25.84375
+
+% Goal 15 - Heuristic Mode
+?- solve_problem(heuristic, 15, 15, Plan).
+Plan = [move(a1, 2, 2, 3, 2), move(a1, 1, 2, 2, 2), move(a2, 2, 2, 2, 1), move(a1, 0, 2, 1, 2), move(a2, 1, 2, 2, 2), move(a1, 0, 1, 0, 2), move(a2, 0, 2, 1, 2), move(a1, 0, 0, 0, 1), move(a1, 1, 0, 0, 0)]
+Yes (1.91s cpu, solution 1, maybe more)
+Elapsed time (sec): 1.90625
+
+%%% Testing with pathfindingInit2 %%%
+%%% (After changing init file and restarting ECLiPSe)
+
+% Goal 21 - Regular Mode
+?- solve_problem(regular, 21, 20, Plan).
+Plan = [move(a5, 3, 3, 3, 4), move(a5, 3, 2, 3, 3), move(a4, 1, 0, 0, 0), move(a4, 1, 1, 1, 0), move(a3, 0, 4, 0, 3), move(a2, 0, 3, 0, 2), move(a1, 0, 2, 0, 1)]
+Yes (26.94s cpu, solution 1, maybe more)
+Elapsed time (sec): 26.9375
+
+% Goal 21 - Heuristic Mode
+?- solve_problem(heuristic, 21, 20, Plan).
+Plan = [move(a5, 3, 3, 3, 4), move(a5, 3, 2, 3, 3), move(a4, 1, 0, 0, 0), move(a4, 1, 1, 1, 0), move(a3, 0, 4, 0, 3), move(a2, 0, 3, 0, 2), move(a1, 0, 2, 0, 1)]
+Yes (11.25s cpu, solution 1, maybe more)
+Elapsed time (sec): 11.25

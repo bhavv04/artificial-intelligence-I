@@ -1,0 +1,134 @@
+
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Parsa Kermani Pour
+%%%%% NAME: Bhavdeep Arora
+%%%%% NAME: Arshia Sharifi
+%
+
+%%%%% SECTION: cpu_details
+%%%%% Describe the system you ran your tests on below.
+%%%%% It should include information about the processor (mainly speed), 
+%%%%% amount of RAM, and operator system you ran your tests on.
+
+System: M2 Macbook Air
+CPU: 3.5 GHz
+Memory: 16 GB
+OS: MacOS
+
+%%%%% SECTION: summary
+%%%%% Summarize your results in 5-10 sentences. Describe which states you tested on, 
+%%%%% which ones ran in a reasonable amount of time (and how long they took), and 
+%%%%% how much speedup you saw when using declarative heuristics. Report any other 
+%%%%% interesting behaviour you saw.
+
+We tested our planner with: 
+    init state 1 -> goal state 11-15
+    init state 2 -> goal state 21-22
+    init state 3 -> goal state 31
+
+Comparing regular vs. heuristic:
+States 11-14 ran pretty much instantaneously, but looking at the times, we were still 
+getting 2-10x faster times with heuristics enabled. State 15 took way too long on regular
+mode but was done quite fast in heuristic mode (less than 20 seconds real time).
+
+State 21 had the same results as states 11-14, running pretty quickly but still seeing a massive
+improvement with heuristics. State 22 took way too long on regular mode so it was skipped. It still took
+quite long with heuristics, almost 8 mins real time.
+
+State 31 was only run with heuristics, but it ran quite a bit faster than state 22 with heuristics, despite
+a similarly sized optimal sequence and a seemingly more complex goal state.
+
+Our heuristics were able to cut down the solve time by such a great amount because we were able to
+prune useless branch on our "state tree" so to speak.
+
+For goal states 15, 22, and 31, we didnt put the logs because they were taking 
+way too long to complete.
+
+%%%%% SECTION: log
+%%%%% Show the actual queries you ran below, along with the output
+%%%%% This should include runtime and the actual plan found
+
+---------------
+Initial State 1
+---------------
+%% Goal 11 (Regular)
+?- solve_problem(regular, 11, 2, Plan).
+Plan = [addSoap(brush), pickUp(brush, counter)]
+Elapsed time (sec): 1.18760000000001e-5
+
+%% Goal 11 (Heuristic)
+?- solve_problem(heuristic, 11, 2, Plan).
+Plan = [addSoap(brush), pickUp(brush, counter)]
+Elapsed time (sec): 1.37190000000006e-5
+
+%% Goal 12 (Regular)
+?- solve_problem(regular, 12, 4, Plan).
+Plan = [putDown(brush, dish_rack), putDown(sponge, counter), pickUp(brush, counter), pickUp(sponge, dish_rack)]
+Elapsed time (sec): 0.000275152999999999
+
+%% Goal 12 (Heuristic)
+?- solve_problem(heuristic, 12, 4, Plan).
+Plan = [putDown(brush, dish_rack), putDown(sponge, counter), pickUp(brush, counter), pickUp(sponge, dish_rack)]
+Elapsed time (sec): 0.000168411
+
+%% Goal 13 (Regular)
+?- solve_problem(regular, 13, 6, Plan).
+Plan = [rinse(g1), scrub(g1, brush), pickUp(g1, counter), addSoap(brush), turnOnFaucet, pickUp(brush, counter)]
+Elapsed time (sec): 0.008791115
+
+%% Goal 13 (Heuristic)
+?- solve_problem(heuristic, 13, 6, Plan).
+Plan = [rinse(g1), scrub(g1, brush), pickUp(g1, counter), addSoap(brush), turnOnFaucet, pickUp(brush, counter)]
+Elapsed time (sec): 0.002905096
+
+%% Goal 14 (Regular)
+?- solve_problem(regular, 14, 8, Plan).
+Plan = [turnOffFaucet, putDown(g1, dish_rack), rinse(g1), scrub(g1, brush), pickUp(g1, counter), addSoap(brush), turnOnFaucet, pickUp(brush, counter)]
+Elapsed time (sec): 0.320399292
+
+%% Goal 14 (Heuristic)
+?- solve_problem(heuristic, 14, 8, Plan).
+Plan = [turnOffFaucet, putDown(g1, dish_rack), rinse(g1), scrub(g1, brush), pickUp(g1, counter), addSoap(brush), turnOnFaucet, pickUp(brush, counter)]
+Elapsed time (sec): 0.034598893
+
+%% Goal 15 (Regular)
+Skipped. Takes too long.
+
+%% Goal 15 (Heuristic)
+?- solve_problem(heuristic, 15, 10, Plan).
+Plan = [turnOffFaucet, putDown(brush, dish_rack), rinse(brush), putDown(g1, dish_rack), rinse(g1), scrub(g1, brush), pickUp(g1, counter), addSoap(brush), turnOnFaucet, pickUp(brush, counter)]
+Elapsed time (sec): 1.30418848
+
+---------------
+Initial State 2
+---------------
+
+%% Goal 21 (Regular)
+?- solve_problem(regular, 21, 6, Plan).
+Plan = [rinse(p1), scrub(p1, sponge), pickUp(p1, counter), addSoap(sponge), turnOnFaucet, pickUp(sponge, dish_rack)]
+Elapsed time (sec): 0.017399613
+
+%% Goal 21 (Heuristic)
+?- solve_problem(heuristic, 21, 6, Plan).
+Plan = [rinse(p1), scrub(p1, sponge), pickUp(p1, counter), addSoap(sponge), turnOnFaucet, pickUp(sponge, dish_rack)]
+Elapsed time (sec): 0.004337939
+
+%% Goal 22 (Regular)
+Skipped. Takes too long
+
+%% Goal 22 (Heuristic)
+?- solve_problem(heuristic, 22, 11, Plan).
+Plan = [putDown(p2, dish_rack), rinse(p2), scrub(p2, sponge), pickUp(p2, counter), putDown(p1, dish_rack), rinse(p1), scrub(p1, sponge), pickUp(p1, counter), addSoap(sponge), turnOnFaucet, pickUp(sponge, dish_rack)]
+Elapsed time (sec): 11.798262472
+
+---------------
+Initial State 3
+---------------
+
+%% Goal 31 (Heuristic)
+?- solve_problem(heuristic, 31, 10, Plan).
+Plan = [putDown(p1, dish_rack), rinse(p1), scrub(p1, sponge), pickUp(p1, counter), addSoap(sponge), putDown(g1, dish_rack), rinse(g1), pickUp(sponge, dish_rack), putDown(brush, counter), scrub(g1, brush)]
+Elapsed time (sec): 1.233031461

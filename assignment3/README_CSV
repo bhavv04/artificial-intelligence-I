@@ -1,0 +1,23 @@
+This file has information on the CSV file formats. Remember that the data in these files
+is the same as in the Python files, so it is unlikely you will need both.
+
+----- travel_times.csv -----
+This file contains the time needed to travel between all pairs of customers and the warehouse.
+The first column shows the starting location for a particular step of travel. It is thus
+labelled as "start" in the first row, which is the header. The remaining columns show the
+time needed to reach each other customer (or warehouse which is indicated as a 'w').
+For example, the fourth row --- starting with c2 --- shows the time needed to travel from
+c2 to any of the other customers. The 5th entry in that row (in the column marked c3) is 35, meaning it takes 35 minutes to get from c2 to c3.
+
+Note that the travel time between a customer and itself is set as 0, but your delivery
+truck should never repeat the same customer more than once in your solution.
+Also notice that the CSV is symmetric, as the time to get from c2 to c3 is the same as
+going from c3 to c2. This is because travel takes the same time in any direction.
+
+
+----- windows.csv -----
+Each row in this file shows the time window for a different customer. The first column
+shows the customer in question. The second column shows the start time. The third column
+shows the end time. The first row is a header. For example, row 4 shows the time windows
+for c3, which starts at time 60 and ends at time 180. Remember that the start time is 
+inclusive and the end time is not.
