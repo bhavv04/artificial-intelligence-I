@@ -1,7 +1,6 @@
 # CPS721 - Artificial Intelligence
 
-Assignments covering core AI concepts, from knowledge representation 
-in Prolog to planning and natural language processing.
+Assignments covering core AI concepts, from knowledge representation and reasoning, constraints satisfaction, search, natural language understanding, planning, uncertainty, belief networks, learning - mostly done in prolog. 
 
 ## Assignments
 
